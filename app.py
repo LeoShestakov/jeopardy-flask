@@ -40,6 +40,10 @@ def handle_results():
         answer = form['answer']
         points = model.calc_points(session['question'], answer)
         session['score'] += points
-        send = [session['question'], answer, points, session['score']]
+        if points > 0:
+            adjust = "+++++++++++"
+        else:
+            adjust = "-----------"
+        send = [session['question'], answer, points, session['score'], adjust]
         return render_template('results.html', data = send)
         
