@@ -12,14 +12,14 @@
   <body>
     {% block content %}
     <h1> CATEGORY: {{data[0]['category']['title'].upper()}} </h1>
-    <h2> YOUR CURRENT SCORE: {{data[1]}} </h2>
+    <h2> YOUR CURRENT SCORE: {{data[3]}} </h2>
     <p> QUESTION: {{data[0]['question']}} </p>
     <p> VALUE: {{data[0]['value']}} </p>
-    <form method="POST" action="/results">
-        <label for='answer'>Type Answer Here: </label> <br>
-        <input type='text' name='answer'> <br>
-        <input type='submit'>
-    </form>
+    <p> YOUR ANSWER: {{data[1]}} </p>
+    <p> OFFICIAL ANSWER: {{data[0]['answer']}}
+    <p> POINT ADJUSTMENT: {{data[2]}} </p>
+    <a href="random"><button type="button" class = "button">Next Question</button></a>
+    <a href="index"><button type="button" class = "button">Quit</button></a>
     {% endblock content%}
 
     <!-- Optional JavaScript -->
